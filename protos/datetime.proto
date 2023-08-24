@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+// Define the Respnse message, which is used to return the current date and time
+// to the client.
+// The message contains a single field, which is a string containing the date
+message ResponseString {
+    string value = 1;
+}
+
+// Define the Request message, which is used to pass the name of the person
+// to the server.
+message RequestString {
+    string value = 1;
+}
+
+
+// Define the service, which is used to implement the RPC methods.
+// SayDateTime is the RPC method that returns the current date and time.
+// This method takes a RequestString as an argument and returns a ResponseString.
+// This method name will be the same as the method name used by the client and server.
+service GetDateTime {
+    rpc SayDateTime (RequestString) returns (ResponseString) {}
+}
